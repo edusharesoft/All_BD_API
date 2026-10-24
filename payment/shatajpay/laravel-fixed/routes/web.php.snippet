@@ -1,0 +1,8 @@
+<?php
+// Add to routes/web.php
+use App\Http\Controllers\ShatajPayController;
+
+Route::post('/shatajpay/checkout', [ShatajPayController::class, 'checkout'])->name('shatajpay.checkout');
+
+// Same path as the vendor sample, so an already-registered callback URL keeps working.
+Route::get('/gateway/payment/callback', [ShatajPayController::class, 'callback'])->name('payment.callback.management');
